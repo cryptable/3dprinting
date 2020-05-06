@@ -73,6 +73,21 @@ module cpu_full() {
     cube([15, 15, 2.4]); 
 }
 
+module memory_full() {
+    cube([10, 14.5, 1.0]); 
+}
+
+module eth_chip_full() {
+    cube([6, 6, 1.0]); 
+}
+
+module usb_chip_full() {
+    cube([8, 8, 1.0]); 
+}
+module wifi_full() {
+    cube([11, 13, 1.0]); 
+}
+
 // More detailed devices
 module av_hollow() {
     translate([0, 3.4, 3])
@@ -147,8 +162,18 @@ module raspberrypi4b(withpcb, withsdcard) {
         usb_full();
     translate([66.2, 37.75, transpose_z])
         eth_full();
+
+    // Chips
     translate([21.75, 25, transpose_z])
         cpu_full();
+    translate([40, 25.7, transpose_z])
+        memory_full();
+    translate([55.5, 35.5, transpose_z])
+        eth_chip_full();
+    translate([55, 20, transpose_z])
+        usb_chip_full();
+    translate([6.5, 36, transpose_z])
+        wifi_full();
 }
 
 raspberrypi4b(0, 0);
