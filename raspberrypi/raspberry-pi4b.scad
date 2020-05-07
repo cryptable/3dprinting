@@ -3,6 +3,7 @@
  * Author:  David Tillemans
  * Version: 0.1
  * Date:    06 May 2020
+ * License: CC BY-SA 4.0
  *
  * Explanation
  * Dimensions of raspberry pi is:
@@ -176,4 +177,4 @@ module raspberrypi4b(withpcb, withsdcard) {
         wifi_full();
 }
 
-raspberrypi4b(0, 0);
+raspberrypi4b(1, 0);
