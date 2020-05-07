@@ -42,19 +42,19 @@ module fan_entry_tube() {
 
 module double_tube() {
 
-    translate([42.5, 0, -42.5]) mounting_plate();
-    translate([60, -9, -41.5]) fan_entry(); 
-    translate([60, -9, -28]) fan_entry_tube(); 
-    linear_extrude(height = 58, center = true, convexity = 10, twist = 120, scale=0.1) translate([60, -9, 0], $fn=100) {
+    translate([42.5, 0, -43.5]) mounting_plate();
+    translate([60, -9, -42.5]) fan_entry(); 
+    translate([60, -9, -29.0]) fan_entry_tube(); 
+    linear_extrude(height = 56, center = true, convexity = 10, twist = 120, scale=0.1) translate([60, -9, 0], $fn=100) {
         difference() {
             circle(r = 15);
             circle(r = 12);
         }
     }
 
-    translate([60, 9, -41.5]) fan_entry(); 
-    translate([60, 9, -28]) fan_entry_tube(); 
-    linear_extrude(height = 58, center = true, convexity = 10, twist = -120, scale=0.1) translate([60, 9, 0], $fn=100) {
+    translate([60, 9, -42.5]) fan_entry(); 
+    translate([60, 9, -29.0]) fan_entry_tube(); 
+    linear_extrude(height = 56, center = true, convexity = 10, twist = -120, scale=0.1) translate([60, 9, 0], $fn=100) {
         difference() {
             circle(r = 15);
             circle(r = 12);
@@ -63,9 +63,9 @@ module double_tube() {
 }
 
 difference() {
-    translate([0,0,44]) double_tube();
-    #translate([0,0,89]) cube([50,15,80], center=true);
+    translate([0,0,45]) double_tube();
+    translate([0,0,89]) cube([50,15,80], center=true);
 }
 
-// translate([0,0,0]) color("blue") cube([100,100,1],center=true);
-// translate([0,0,72]) color("green") cube([100,100,1],center=true);
+// translate([0,0,-0.5]) color("blue") cube([100,100,1],center=true);
+// translate([0,0,72.5]) color("green") cube([100,100,1],center=true);
