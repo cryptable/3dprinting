@@ -30,11 +30,11 @@ module fan_entry() {
 module fan_entry_tube() {
     difference() {
         hull() {
-            translate([0, 0, -11]) cube([24.0, 19.5, 1], center=true);
+            translate([0, 0, -16]) cube([24.0, 19.5, 1], center=true);
             cylinder(r = 15, 1);;        
         }
         scale([0.8, 0.8, 1]) hull() {
-            translate([0, 0, -11]) cube([24.0, 19.5, 2], center=true);
+            translate([0, 0, -16]) cube([24.0, 19.5, 2], center=true);
             cylinder(r = 15, 2);;        
         }
     }
@@ -42,19 +42,19 @@ module fan_entry_tube() {
 
 module double_tube() {
 
-    translate([42.5, 0, -43.5]) mounting_plate();
-    translate([60, -9, -42.5]) fan_entry(); 
-    translate([60, -9, -29.0]) fan_entry_tube(); 
-    linear_extrude(height = 56, center = true, convexity = 10, twist = 120, scale=0.1) translate([60, -9, 0], $fn=100) {
+    translate([42.5, 0, -46.5]) mounting_plate();
+    translate([60, -9, -45.5]) fan_entry(); 
+    translate([60, -9, -26.5]) fan_entry_tube(); 
+    linear_extrude(height = 51, center = true, convexity = 10, twist = 120, scale=0.1) translate([60, -9, 0], $fn=100) {
         difference() {
             circle(r = 15);
             circle(r = 12);
         }
     }
 
-    translate([60, 9, -42.5]) fan_entry(); 
-    translate([60, 9, -29.0]) fan_entry_tube(); 
-    linear_extrude(height = 56, center = true, convexity = 10, twist = -120, scale=0.1) translate([60, 9, 0], $fn=100) {
+    translate([60, 9, -45.5]) fan_entry(); 
+    translate([60, 9, -26.5]) fan_entry_tube(); 
+    linear_extrude(height = 51, center = true, convexity = 10, twist = -120, scale=0.1) translate([60, 9, 0], $fn=100) {
         difference() {
             circle(r = 15);
             circle(r = 12);
@@ -63,7 +63,7 @@ module double_tube() {
 }
 
 difference() {
-    translate([0,0,45]) double_tube();
+    translate([0,0,48]) double_tube();
     translate([0,0,89]) cube([50,15,80], center=true);
 }
 
