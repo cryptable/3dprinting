@@ -27,10 +27,12 @@ module bottom_plate() {
                 cylinder(r = 3, 0.8);        
             }
             translate([12,0,-4]) cube([3, 76 - 6, 4]);
-            translate([76,0,-4]) cube([3, 76 - 6, 4]);
+            translate([74.5,0,-4]) cube([3, 76 - 6, 4]);
         }
         union() {
-            side_supports();
+            translate([19.3,0,-1]) cube([56.8,3.2,5]);
+            translate([19.3,72.8,-1]) cube([56.8,3.2,5]);
+            
             translate([9.4,7.15,-1]) cylinder(d=3.2, 5);
             translate([9.4,68.86,-1]) cylinder(d=3.2, 5);
             translate([86,7.15,-1]) cylinder(d=3.2, 5);
@@ -55,25 +57,27 @@ module side_support() {
         union() {
             translate([6.4,-1,6]) rotate([-90,0,0]) cylinder(d=3.2, 5);
             translate([83,-1,6]) rotate([-90,0,0]) cylinder(d=3.2, 5);
-            translate([0,-1,0]) cube([16.4, 5, 3]);
-            translate([73,-1,0]) cube([21, 5, 3]);
+            translate([-1,-1,-1]) cube([17.4, 5, 4]);
+            translate([73,-1,-1]) cube([22, 5, 4]);
         }
     }    
 }
 
 module pi_support_left() {   
     difference() {
-        union() {
-            cube([90, 16, 4]);
-            translate([2.5,0,4]) cube([6,16,2.2]);
-            translate([61.5,0,4]) cube([5,16,2.2]);
-        } 
-        union() {
-            translate([6,13.5,-1]) cylinder(d=2.7, 8);
-            translate([64,13.5,-1]) cylinder(d=2.7, 8);
-            translate([6,13.5,-1]) cylinder(d=5, 3);
-            translate([64,13.5,-1]) cylinder(d=5, 3);
+        difference() {
+            union() {
+                cube([90, 16, 4]);
+                translate([2.5,0,4]) cube([6,16,2.2]);
+                translate([61.5,0,4]) cube([5,16,2.2]);
+            } 
+            union() {
+                translate([6,13.5,2]) cylinder(d=2.7, 8);
+                translate([64,13.5,2]) cylinder(d=2.7, 8);
+            }
         }
+        translate([6,13.5,-1]) cylinder(d=5, 3);
+        translate([64,13.5,-1]) cylinder(d=5, 3);
     }
 }
 
@@ -107,4 +111,5 @@ module build_topology() {
 // translate([3,76,0]) support_right();
 // translate([3,0,0]) support_left();
 // complete_case();
-build_topology();
+// build_topology();
+pi_support_left();
