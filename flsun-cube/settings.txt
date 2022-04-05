@@ -25,3 +25,31 @@ G1 Z+0.5 E-5 X-20 Y-20 F9000 ;move Z up a bit and retract filament even more
 G28 X0 Y0 ;move X/Y to min endstops, so the head is out of the way
 M84 ;steppers off
 G90 ;absolute positioning
+
+Calibration
+===========
+
+M851 Z0
+G28
+M121
+M211 S0
+
+Bring nozzle to distance of the thickness of a paper
+Write down the Z-axis down, mostly a negative value
+
+M851 Z<value>
+
+Test the new value
+G28
+G0 Z0
+
+Enable back the hardware and software endstops
+M120
+M211 S1
+
+Save the settings in EEPROM
+M500
+
+
+### Reference:
+- https://www.3dprintbeast.com/set-x-y-z-offsets-with-m851-g-code/
